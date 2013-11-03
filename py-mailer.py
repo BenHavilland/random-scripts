@@ -10,7 +10,7 @@ try:
 except:
     TEXT = "Stop talking to yourself."
 
-message = """
+message = """\
 From: %s
 To: %s
 Subject: %s
