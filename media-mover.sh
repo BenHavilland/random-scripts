@@ -11,11 +11,11 @@
 #
 
 # directory to begin recursive search
-SOURCE='/USB'
+SOURCE='/USB' # no trailing slash
 # text to look for in directory names to move
-MOVE_DIRS=('DCIM*' 'DCIM')
+MOVE_DIRS=('DCIM*' 'TEST*')
 # where the directories get moved to
-DESTINATION='/z/media/'
+DESTINATION='/z/media'
 
 # change the Internal Field Separator 
 # so we can have dir names with spaces
@@ -40,6 +40,10 @@ do
         fi
     done
 done
+
+# find the disk used by the dest directories and unmount them
+disks_to_unmount=($(df -lH | grep "${SOURCE}"/ | awk '{ print $1 }'))
+echo "${disks_to_unmount[@]}"
 
 # restore the IFS
 IFS="${SAVE_IFS}"
