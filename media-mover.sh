@@ -41,13 +41,17 @@ do
     done
 done
 
+# get some text for the report
+device_info_text=($(df -lH | grep "${SOURCE}"/))
+
 # find the disk used by the dest directories and unmount them
 disks_to_unmount=($(df -lH | grep "${SOURCE}"/ | awk '{ print $1 }'))
-echo "${disks_to_unmount[@]}"
 for disk in "${disks_to_unmount[@]}"
 do
-    unmount "${disk}"
+    umount "${disk}"
 done
+
+echo "${device_info_text[@]}"
 
 # restore the IFS
 IFS="${SAVE_IFS}"
