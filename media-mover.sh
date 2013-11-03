@@ -3,7 +3,7 @@
 # media-mover
 #
 # looks for DCIM or other media directories
-# renames with a prepended date
+# renames with an appended date
 # moves files to destination
 #
 # config: set the global vars below
