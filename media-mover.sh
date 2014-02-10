@@ -10,6 +10,13 @@
 # usage: just run it. no passed in vars
 #
 
+# The magic happens when you integrate it with udev
+# create file:
+# /etc/udev/rules.d/10-custom-user.rules
+# with something like:
+# KERNEL=="sd*1",ACTION=="add", RUN="/opt/media-mover.sh"
+# sudo /etc/init.d/udev restart
+
 # directory to begin recursive search
 SOURCE='/USB' # no trailing slash
 # text to look for in directory names to move

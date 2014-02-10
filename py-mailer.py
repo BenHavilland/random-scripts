@@ -1,11 +1,3 @@
-"""
-create 
-/etc/udev/rules.d/10-custom-user.rules
-with something like:
-KERNEL=="sd*1",ACTION=="add", RUN="/opt/media-mover.sh"
-sudo /etc/init.d/udev restart
-"""
-
 import sys, smtplib
 
 SERVER = "smtp.sendgrid.com"
